@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 // Static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Starting
 app.listen(app.get('port'), () => {
