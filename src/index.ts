@@ -4,6 +4,7 @@ import express from 'express';
 const app = express();
 
 // Settings
+app.set('port', 3000);
 
 // Middlewares
 
@@ -13,3 +14,6 @@ const app = express();
 // Static files
 
 // Starting
+app.listen(app.get('port'), () => {
+    console.log('Server on Port', app.get('port'));
+});
