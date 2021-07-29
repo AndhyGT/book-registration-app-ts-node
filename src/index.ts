@@ -2,6 +2,8 @@ import express from 'express';
 import exphbs from 'express-handlebars';
 import path from 'path';
 
+import indexRoutes from './routes';
+
 // Initializations
 const app = express();
 
@@ -23,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 // Routes
-
+app.use('/books', indexRoutes);
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
