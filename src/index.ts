@@ -4,9 +4,13 @@ import express from 'express';
 const app = express();
 
 // Settings
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000);
 
 // Middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+
 
 // Routes
 
