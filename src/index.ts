@@ -3,6 +3,7 @@ import exphbs from 'express-handlebars';
 import path from 'path';
 
 import indexRoutes from './routes';
+import indexBooks from './routes/books';
 
 // Initializations
 const app = express();
@@ -14,7 +15,8 @@ app.engine('.hbs', exphbs({
     extname: '.hbs',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
-    helpers: require('./lib/helpers')
+    helpers: require('./lib/helpers'),
+    defaultLayout: 'main'
 }));
 app.set('view engine', '.hbs');
 
@@ -25,7 +27,8 @@ app.use(express.urlencoded({ extended: false }));
 
 
 // Routes
-app.use('/books', indexRoutes);
+app.use('/', indexRoutes);
+app.use('/books', indexBooks);
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
