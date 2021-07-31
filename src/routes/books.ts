@@ -7,6 +7,7 @@ import { booksController } from '../controllers/booksController';
 router.get('/', booksController.index);
 router.get('/add', booksController.renderFormBook);
 router.post('/add', booksController.saveBook);
+router.get('/delete/:id', booksController.deleteBook);
 
 
 export default router;

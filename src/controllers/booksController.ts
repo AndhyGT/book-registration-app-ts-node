@@ -27,6 +27,13 @@ class BooksController {
 
         if (save) res.redirect('/books');
     }
+
+    public async deleteBook(req: Request, res: Response) {
+        const { id } = req.params;
+        await BookModel.deleteOne({ _id: id });
+
+        res.redirect('/books/');
+    }
 }
 
 
